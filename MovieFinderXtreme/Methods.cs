@@ -17,5 +17,9 @@ namespace MovieFinderXtreme
             return id;
         }
 
+        public static void Lines()
+        {
+            Console.WriteLine("-----------------------------------------------");
+        }
     }
 }

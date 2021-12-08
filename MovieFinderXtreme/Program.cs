@@ -18,11 +18,14 @@ namespace MovieFinderXtreme
             {
                 case 1:
                     {
+                        Methods.Lines();
                         User.CreateUser();
                         break;
                     }
                 case 2:
                     {
+                        Methods.Lines();
+                        Console.WriteLine("You are now logged in as a guest, you may continue:");
                         break;
                     }
 
