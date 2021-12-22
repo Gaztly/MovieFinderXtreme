@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace MovieFinderXtreme
 {
@@ -27,6 +28,7 @@ namespace MovieFinderXtreme
             public float vote_average { get; set; }
             public int vote_count { get; set; }
 
+
         public Movie(string title, int id, int length,string about)
         {
             this.original_title = title;
@@ -35,6 +37,7 @@ namespace MovieFinderXtreme
             this.overview = about;
 
     }
+      
     }
     
 
