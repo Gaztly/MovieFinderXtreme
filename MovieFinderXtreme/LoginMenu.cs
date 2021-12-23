@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace MovieFinderXtreme
 {
-    class LoginMenu
+    public class LoginMenu
     {
         public static int Introduction()
         {
-            Console.WriteLine("Welcome To Snäll's Movie Finder Xtreme, peasant\n You may now choose how to continue\n1.Login\n2.Continue as guest\n3.Create Account");
+            Console.WriteLine("Welcome To Snäll's Movie Finder Xtreme, peasant\n" +
+                "You may now choose how to continue\n1.Login\n2.Continue as guest\n3.Create Account");
+
             int choice = Convert.ToInt32(Console.ReadLine());
             return choice;
         }
         int choice = Introduction();
-         public static void Menu(int choice)
+         public static async Task Menu(int choice)
         {
             switch (choice)
             {
@@ -27,11 +29,13 @@ namespace MovieFinderXtreme
                     }
                 case 2:
                     {
-                        MainMenu.Mains();
+                      MainMenu.Mains();
                         break;
                     }
                 case 3:
                     {
+                        Console.Clear();
+                        User.CreateUser();
                         break;
                     }
             }
@@ -81,9 +85,7 @@ namespace MovieFinderXtreme
             }
             }
 
-
-
-
+            MainMenu.Mains();
         }
 
     }

@@ -56,5 +56,11 @@ namespace MovieFinderXtreme
         }
         public static User CurrUser;
 
+        public static void TestUser()
+        {
+            new User("Funky", 28, "Blixten", "Sweden", "Horror");
+        }
+        
+
     }
 }
