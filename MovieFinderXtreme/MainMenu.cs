@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace MovieFinderXtreme
 {
-    class ListOfGenre
+    class MainMenu
     {
-        public List<Genres> allG { get; set; }
+       public static void Mains()
+        {
+
+
+        }
 
     }
 }

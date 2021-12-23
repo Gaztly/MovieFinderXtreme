@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MovieFinderXtreme
 {
-    class User
+   class User
 
     {
         public static Dictionary<int, User> Users = new();
+        public static List <string> preferences= new ();
         private string _preferences;
         private int _id;
         private string _userName;
@@ -53,5 +54,7 @@ namespace MovieFinderXtreme
             Console.Write("Please select your preferences: ");
             string preferences = Console.ReadLine();
         }
+        public static User CurrUser;
+
     }
 }

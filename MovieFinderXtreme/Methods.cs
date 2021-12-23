@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MovieFinderXtreme
@@ -26,5 +28,20 @@ namespace MovieFinderXtreme
         {
             Console.WriteLine("-----------------------------------------------");
         }
+
+        public static void Paus(int paus)
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(paus));
+            while (Console.KeyAvailable)
+            {
+                Console.ReadKey(false);
+            }
+        }
+
+        public static bool VerifyPassword(string password)
+        {
+            return User.CurrUser.Password == password;
+        }
+ 
     }
 }
