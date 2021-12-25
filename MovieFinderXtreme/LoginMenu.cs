@@ -10,6 +10,9 @@ namespace MovieFinderXtreme
     {
         public static int Introduction()
         {
+            while(true)
+            {
+
             Methods.Title("Movie Finder Xtreme");
 
             Console.WriteLine(@"Welcome To Snäll's Movie Finder Xtreme, peasant!
@@ -19,12 +22,22 @@ You may now choose how to continue.
 2.Continue as guest
 3.Create Account
 4.Exit program");
-
+            try
+            {
 
             int choice = Convert.ToInt32(Console.ReadLine());
-            return choice;
+             return choice;
+            }
+            catch (FormatException e)
+            {
+                Console.Clear();
+                Console.WriteLine("You really did NOT understand the assignment, try again....");
+                    continue;
+            }
+            }
         }
-        int choice = Introduction();
+       int choice = Introduction();
+
          public static async Task Menu(int choice)
         {
             switch (choice)
@@ -36,6 +49,7 @@ You may now choose how to continue.
                         break;
                     }
                 case 2:
+        
                     {
                         User.CurrUser = User.Users[2];
                      await MainMenu.Mains();
@@ -51,11 +65,12 @@ You may now choose how to continue.
                     }
                 case 4:
                     {
+                        Console.Clear();
+                        Console.WriteLine("Exiting program...");
+                        Methods.Paus(2);
                         break;
                     }
             }
-      
-
         }
 
         public static async Task LoggingIn ()
@@ -76,27 +91,29 @@ You may now choose how to continue.
             else
             {
                 Console.WriteLine("Username Incorrect! Try again");
+                Methods.Lines();
                 continue;
             }
 
             }
             while (true)
             {
-
-            Console.Clear();
             Console.WriteLine("You may now enter your Password: ");
             Methods.Lines();
             string pass = Console.ReadLine();
             if(pass == User.CurrUser.Password)
             {
                 Console.Clear();
-                Console.WriteLine("Password Confirmed!\nYou will now be signed in...");
+                Console.WriteLine("Password Confirmed!");
+                Methods.Lines();
+                Console.WriteLine("You will now be signed in...");
                 Methods.Paus(3);
                 break;
             }
             else
             {
                     Console.WriteLine("Incorrect password, try again!");
+                    Methods.Lines();
                     continue;
             }
             }

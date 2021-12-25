@@ -72,8 +72,8 @@ namespace MovieFinderXtreme
             Console.WriteLine("Redirecting you to menu, please wait...");
             Methods.Paus(2);
             LoginMenu.Introduction();
+          
         }
-
         public static void TestUser()
         {
             new User("Funky", 28, "Blixten", "Sweden","Horror");

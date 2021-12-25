@@ -12,7 +12,13 @@ namespace MovieFinderXtreme
         {
             Console.Clear();
             Methods.Title("Main Menu");
-            Console.WriteLine("Welcome {0}\n1.Search by movie ID\n2.Search by title\n3.Add genres to favourites\n4.View profile\n5.Logout", User.CurrUser.UserName);
+            while (true)
+            {
+
+           try
+            {
+
+            Console.WriteLine("Welcome {0}\n\n1.Search by movie ID\n2.Search by title\n3.Add genres to favourites\n4.View profile\n5.Logout", User.CurrUser.UserName);
             int number = Convert.ToInt32(Console.ReadLine());
 
                 switch (number)
@@ -20,7 +26,6 @@ namespace MovieFinderXtreme
                      case 1:
                     {
                         Console.Clear();
-                        Methods.Lines();
                         await Methods.GetId();
                         break;
                     }
@@ -33,7 +38,6 @@ namespace MovieFinderXtreme
                      case 3:
                     {
                         Console.Clear();
-                        Methods.Lines();
                         await Methods.GetGenre();
                         break;
                     }
@@ -52,16 +56,25 @@ namespace MovieFinderXtreme
                             Console.WriteLine("Logging out..");
                             Methods.Lines();
                             Methods.Paus(3);
-                            LoginMenu.Introduction();
+                            int x = LoginMenu.Introduction();
+                            await LoginMenu.Menu(x);
                             break;
                         }
                     }
+                          
 
-                   
-                
-
+                }
             }
-        }
+                catch (FormatException e)
+                {
+                    Methods.Lines();
+                    Console.WriteLine("Wrrrrrrrooooooong input");
+                    Console.WriteLine("Try again dummie!");
+                    Methods.Lines();
+                    continue;
+                }
+           }
+       }
 
     }
 }
