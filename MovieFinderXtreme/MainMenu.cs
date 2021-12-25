@@ -44,7 +44,6 @@ namespace MovieFinderXtreme
                     case 4:
                         {
                             Console.Clear();
-                            Methods.Lines();
                             Methods.PrintUserInfo();
                             break;
                         }

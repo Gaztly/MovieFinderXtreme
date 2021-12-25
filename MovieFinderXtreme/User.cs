@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MovieFinderXtreme
 {
-   class User
+    class User
 
     {
         public static Dictionary<int, User> Users = new();
-        public static List <string> preferences= new ();
+        public static List<string> preferences = new();
         private int _id { get; set; }
-        private string _userName;
+        private string _userName { get; set; }
         private int _age;
         private string _password { get; set; }
         private string _country { get; set; }
@@ -21,13 +21,13 @@ namespace MovieFinderXtreme
         public int ID
         { get { return _id; } }
         public string Password
-        { get { return _password; } }
+        { get { return _password; } set { _password = value; } }
         public string Country
         { get { return _country; } }
         public int Age
-        { get { return _age; }  }
+        { get { return _age; } }
         public string UserName
-        { get { return _userName; } }
+        { get { return _userName; } set { _userName = value; } }
         public string Preference
         { get { return _preference; } }
         
@@ -66,7 +66,7 @@ namespace MovieFinderXtreme
 
 
             int i = 4;
-        User userso = new(Username, Age, password, country, preference);
+        User user = new(Username, Age, password, country, preference);
             User.Users.Add(i, CurrUser);
             CurrUser = User.Users[i];
             Console.WriteLine("Redirecting you to menu, please wait...");

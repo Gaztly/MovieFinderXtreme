@@ -38,7 +38,7 @@ You may now choose how to continue.
         }
        int choice = Introduction();
 
-         public static async Task Menu(int choice)
+        public static async Task Menu(int choice)
         {
             switch (choice)
             {
@@ -71,6 +71,7 @@ You may now choose how to continue.
                         break;
                     }
             }
+            
         }
 
         public static async Task LoggingIn ()

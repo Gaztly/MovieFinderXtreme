@@ -19,16 +19,18 @@ namespace MovieFinderXtreme
             Title("Profile");
             Console.WriteLine("Username: {0}\nAge: {1}\nCountry of origin: {2}\nPreferences: {3}", User.CurrUser.UserName, User.CurrUser.Age, User.CurrUser.Country, User.CurrUser.Preference);
             Lines();
-            Console.WriteLine("1. Edit username\n2.Edit password\n3.See list of added genres");
+            Console.WriteLine("1.Edit username\n2.Edit password\n3.See list of added genres");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
                 case 1:
                     {
+                        EditUserName();
                         break;
                     }
                 case 2:
                     {
+                        EditPassWord();
                         break;
                     }
                 case 3:
@@ -47,6 +49,28 @@ namespace MovieFinderXtreme
                     }
             }
         }
+        public static void EditUserName()
+        {
+            Title("Edit Username");
+            Console.WriteLine("You may now enter your new username {0}",User.CurrUser.UserName);
+            User.CurrUser.UserName = Console.ReadLine();
+            Lines();
+            Console.WriteLine("You have now successfully changed username to: {0}", User.CurrUser.UserName);
+            Lines();
+            Paus(3);
+            Console.Clear();
+        }
+        public static void EditPassWord()
+        {
+            Title("Edit Password");
+            Console.WriteLine("You may now enter your new password {0}", User.CurrUser.UserName);
+            User.CurrUser.Password = Console.ReadLine();
+            Lines();
+            Console.WriteLine("You have now successfully changed password to: {0}", User.CurrUser.Password);
+            Lines();
+            Paus(3);
+            Console.Clear();
+        }
         public static int Id()
         {
             Console.Write("Please enter the ID for the Movie you wish to search for: ");
@@ -55,7 +79,7 @@ namespace MovieFinderXtreme
         }
         public static void Lines()
         {
-            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("-----------------------------------------------------------");
         }
 
         public static void Paus(int paus)
@@ -98,10 +122,10 @@ namespace MovieFinderXtreme
             Result.Rootobject movietitle = JsonConvert.DeserializeObject<Result.Rootobject>(responseContent);
 
             Console.Clear();
-            Console.WriteLine("Movie Id: {0}", movietitle.results);
             foreach (var item in movietitle.results)
             {
-                Console.WriteLine("{0}. {1} ID: {2}", i, item.original_title, item.id);
+                Console.WriteLine("{0}.{1}----> Movie-Id: {2}", i, item.original_title, item.id);
+                Lines();
                 i++;
 
             }
@@ -239,12 +263,12 @@ namespace MovieFinderXtreme
                 }
 
                 Console.WriteLine("Please enter the number corresponding to your choice: ");
-                try
-                {
+            
 
                     while (true)
                     {
-
+                    try
+                    {
                         if (int.TryParse(Console.ReadLine(), out int choice))
                         {
 
@@ -253,6 +277,7 @@ namespace MovieFinderXtreme
                                 case 1:
                                     Console.Clear();
                                     Console.WriteLine("Action has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Action");
                                     Console.WriteLine("Add another? Y/N");
                                     string answer = Console.ReadLine().ToLower();
@@ -276,6 +301,7 @@ namespace MovieFinderXtreme
                                 case 2:
                                     Console.Clear();
                                     Console.WriteLine("Adventure has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Adventure");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -299,6 +325,7 @@ namespace MovieFinderXtreme
                                 case 3:
                                     Console.Clear();
                                     Console.WriteLine("Animation has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Animation");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -321,6 +348,7 @@ namespace MovieFinderXtreme
                                 case 4:
                                     Console.Clear();
                                     Console.WriteLine("Comedy has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Comedy");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -343,6 +371,7 @@ namespace MovieFinderXtreme
                                 case 5:
                                     Console.Clear();
                                     Console.WriteLine("Crime has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Crime");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -365,6 +394,7 @@ namespace MovieFinderXtreme
                                 case 6:
                                     Console.Clear();
                                     Console.WriteLine("Documentary has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Documentary");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -386,6 +416,7 @@ namespace MovieFinderXtreme
                                 case 7:
                                     Console.Clear();
                                     Console.WriteLine("Drama has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Drama");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -407,6 +438,7 @@ namespace MovieFinderXtreme
                                 case 8:
                                     Console.Clear();
                                     Console.WriteLine("Family has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Family");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -428,6 +460,7 @@ namespace MovieFinderXtreme
                                 case 9:
                                     Console.Clear();
                                     Console.WriteLine("Fantasy has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Fantasy");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -449,6 +482,7 @@ namespace MovieFinderXtreme
                                 case 10:
                                     Console.Clear();
                                     Console.WriteLine("History has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("History");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -470,6 +504,7 @@ namespace MovieFinderXtreme
                                 case 11:
                                     Console.Clear();
                                     Console.WriteLine("Horror has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Horror");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -491,6 +526,7 @@ namespace MovieFinderXtreme
                                 case 12:
                                     Console.Clear();
                                     Console.WriteLine("Music has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Music");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -512,6 +548,7 @@ namespace MovieFinderXtreme
                                 case 13:
                                     Console.Clear();
                                     Console.WriteLine("Mystery has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Mystery");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -533,6 +570,7 @@ namespace MovieFinderXtreme
                                 case 14:
                                     Console.Clear();
                                     Console.WriteLine("Romance has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Romance");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -554,6 +592,7 @@ namespace MovieFinderXtreme
                                 case 15:
                                     Console.Clear();
                                     Console.WriteLine("Science Fiction has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Science Fiction");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -575,6 +614,7 @@ namespace MovieFinderXtreme
                                 case 16:
                                     Console.Clear();
                                     Console.WriteLine("TV Movie has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("TV Movie");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -596,6 +636,7 @@ namespace MovieFinderXtreme
                                 case 17:
                                     Console.Clear();
                                     Console.WriteLine("Thriller has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Thriller");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -617,6 +658,7 @@ namespace MovieFinderXtreme
                                 case 18:
                                     Console.Clear();
                                     Console.WriteLine("War has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("War");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -638,6 +680,7 @@ namespace MovieFinderXtreme
                                 case 19:
                                     Console.Clear();
                                     Console.WriteLine("Western has been added to your list of preferences {0}.", User.CurrUser.UserName);
+                                    Lines();
                                     User.preferences.Add("Western");
                                     Console.WriteLine("Add another? Y/N");
                                     answer = Console.ReadLine().ToLower();
@@ -659,16 +702,18 @@ namespace MovieFinderXtreme
                             }
                             continue;
                         }
+
                       
+                    }
+                    catch (FormatException e)
+                    {
+                        Lines();
+                        Console.WriteLine("Nah braah, you did wrong!\nTry again!");
+                        Lines();
                     }
 
                 }
-                catch (FormatException e)
-                {
-                    Lines();
-                    Console.WriteLine("Nah braah, you did wrong!\nTry again!");
-                    Lines();
-                }
+
                
             }
         }
