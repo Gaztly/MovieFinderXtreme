@@ -74,6 +74,7 @@ namespace MovieFinderXtreme
             Console.WriteLine("Release date: {0}", movie.original_language);
             Console.WriteLine("Website Url: {0}", movie.homepage);
             Console.WriteLine("Poster Url: {0}", movie.poster_path);
+            Console.WriteLine();
             Console.WriteLine("About: {0}", movie.overview);
             Methods.Lines();
         }

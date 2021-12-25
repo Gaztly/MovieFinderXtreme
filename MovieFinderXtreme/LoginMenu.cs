@@ -10,8 +10,14 @@ namespace MovieFinderXtreme
     {
         public static int Introduction()
         {
-            Console.WriteLine("Welcome To Snäll's Movie Finder Xtreme, peasant\n" +
-                "You may now choose how to continue\n1.Login\n2.Continue as guest\n3.Create Account");
+            Methods.Title("Movie Finder Xtreme");
+
+            Console.WriteLine(@"Welcome To Snäll's Movie Finder Xtreme, peasant!
+You may now choose how to continue
+1.Login
+2.Continue as guest
+3.Create Account");
+
 
             int choice = Convert.ToInt32(Console.ReadLine());
             return choice;
@@ -29,13 +35,15 @@ namespace MovieFinderXtreme
                     }
                 case 2:
                     {
-                      MainMenu.Mains();
+                     await MainMenu.Mains();
                         break;
                     }
                 case 3:
                     {
                         Console.Clear();
                         User.CreateUser();
+                        Console.WriteLine("You will now be sent to the login page.");
+                        LoggingIn();
                         break;
                     }
             }
@@ -46,10 +54,11 @@ namespace MovieFinderXtreme
         public static void LoggingIn ()
         {
             while (true)
-            { 
-            Console.WriteLine("Please enter your Username: ");
-            string input = Console.ReadLine();
-            if (input== User.CurrUser.UserName)
+            {
+                User.CurrUser = User.Users[1];
+                Console.WriteLine("Please enter your Username: ");
+                string input = Console.ReadLine();
+                if (User.CurrUser.UserName == input)
             {
                 Console.Clear();
                 Console.WriteLine("Username Confirmed!");

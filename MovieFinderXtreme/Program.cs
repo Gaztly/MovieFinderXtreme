@@ -15,9 +15,12 @@ namespace MovieFinderXtreme
         static async Task Main(string[] args)
 
         {
+            User.TestUser();
             int x = LoginMenu.Introduction();
-            LoginMenu.Menu(x);
-           
+            await LoginMenu.Menu(x);
+
+            LoginMenu.LoggingIn();
+           await MainMenu.Mains();
         }
     }
 }
