@@ -13,10 +13,12 @@ namespace MovieFinderXtreme
             Methods.Title("Movie Finder Xtreme");
 
             Console.WriteLine(@"Welcome To Snäll's Movie Finder Xtreme, peasant!
-You may now choose how to continue
+You may now choose how to continue.
+
 1.Login
 2.Continue as guest
-3.Create Account");
+3.Create Account
+4.Exit program");
 
 
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -30,11 +32,12 @@ You may now choose how to continue
                 case 1:
                     {
                         Methods.Lines();
-                        LoggingIn();
+                       await LoggingIn();
                         break;
                     }
                 case 2:
                     {
+                        User.CurrUser = User.Users[2];
                      await MainMenu.Mains();
                         break;
                     }
@@ -43,7 +46,11 @@ You may now choose how to continue
                         Console.Clear();
                         User.CreateUser();
                         Console.WriteLine("You will now be sent to the login page.");
-                        LoggingIn();
+                      await  LoggingIn();
+                        break;
+                    }
+                case 4:
+                    {
                         break;
                     }
             }
@@ -51,7 +58,7 @@ You may now choose how to continue
 
         }
 
-        public static void LoggingIn ()
+        public static async Task LoggingIn ()
         {
             while (true)
             {
@@ -68,8 +75,8 @@ You may now choose how to continue
             }
             else
             {
-                Console.WriteLine("Password Incorrect! Try again");
-                return;
+                Console.WriteLine("Username Incorrect! Try again");
+                continue;
             }
 
             }
@@ -83,18 +90,18 @@ You may now choose how to continue
             if(pass == User.CurrUser.Password)
             {
                 Console.Clear();
-                Console.WriteLine("Password Confirmed!\nYou will now be signed in");
+                Console.WriteLine("Password Confirmed!\nYou will now be signed in...");
                 Methods.Paus(3);
                 break;
             }
             else
             {
                     Console.WriteLine("Incorrect password, try again!");
-                    return;
+                    continue;
             }
             }
-
-            MainMenu.Mains();
+            await MainMenu.Mains();
+      
         }
 
     }

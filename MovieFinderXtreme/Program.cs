@@ -18,9 +18,8 @@ namespace MovieFinderXtreme
             User.TestUser();
             int x = LoginMenu.Introduction();
             await LoginMenu.Menu(x);
+           
 
-            LoginMenu.LoggingIn();
-           await MainMenu.Mains();
         }
     }
 }

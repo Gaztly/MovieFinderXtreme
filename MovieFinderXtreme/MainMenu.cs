@@ -10,46 +10,55 @@ namespace MovieFinderXtreme
     {
        public static async Task Mains()
         {
+            Console.Clear();
             Methods.Title("Main Menu");
-            Console.WriteLine("You can now choose how to search after movies {0}\n1. Search by movie ID\n2.Search by title\n3.Sort by genre", User.CurrUser.UserName);
+            Console.WriteLine("Welcome {0}\n1.Search by movie ID\n2.Search by title\n3.Add genres to favourites\n4.View profile\n5.Logout", User.CurrUser.UserName);
             int number = Convert.ToInt32(Console.ReadLine());
 
-            while (true)
-            {
-            switch (number)
-            {
-                case 1:
+                switch (number)
+                {
+                     case 1:
                     {
                         Console.Clear();
                         Methods.Lines();
                         await Methods.GetId();
-                        return;
+                        break;
                     }
-                case 2:
+                     case 2:
                     {
-                        return;
+                        Console.Clear();
+                       await Methods.GetTitle();
+                        break;
                     }
-                case 3:
+                     case 3:
                     {
                         Console.Clear();
                         Methods.Lines();
                         await Methods.GetGenre();
-                        return;
+                        break;
                     }
-
-                        Console.WriteLine("Would you like to do another search? Y/N");
-                        string answer = Console.ReadLine();
-                        if (answer == "Y")
+                    case 4:
                         {
-                            continue;
-                        }
-                        else
-                        {
+                            Console.Clear();
+                            Methods.Lines();
+                            Methods.PrintUserInfo();
                             break;
                         }
-                        int x = LoginMenu.Introduction();
-                        await LoginMenu.Menu(x);
-            }
+                case 5:
+                    {
+                        {
+                            Console.Clear();
+                            Methods.Lines();
+                            Console.WriteLine("Logging out..");
+                            Methods.Lines();
+                            Methods.Paus(3);
+                            LoginMenu.Introduction();
+                            break;
+                        }
+                    }
+
+                   
+                
 
             }
         }
