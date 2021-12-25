@@ -77,6 +77,7 @@ namespace MovieFinderXtreme
         }
         public static async Task GetTitle()
         {
+            int i = 1;
             Title("Search by Title");
             DotNetEnv.Env.TraversePath().Load();
             string key = Environment.GetEnvironmentVariable("API-KEY");
@@ -95,11 +96,13 @@ namespace MovieFinderXtreme
 
             Console.Clear();
             Console.WriteLine("Movie Id: {0}", movietitle.results);
-
             foreach (var item in movietitle.results)
             {
-                Console.WriteLine(item.original_title);
+                Console.WriteLine("{0}. {1} ID: {2}",i,item.original_title,item.id);
+                i++;
+                
             }
+
             Console.WriteLine("Would you like to do another search by title?\nY/N");
             Lines();
             string answer = Console.ReadLine().ToLower();
