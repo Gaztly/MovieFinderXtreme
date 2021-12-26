@@ -91,16 +91,11 @@ namespace MovieFinderXtreme
             }
         }
 
-        public static bool VerifyPassword(string password)
-        {
-            return User.CurrUser.Password == password;
-        }
-
         public static void Title(string title)
         {
-            Methods.Lines();
+            Lines();
             Console.WriteLine(title);
-            Methods.Lines();
+            Lines();
         }
         public static async Task GetTitle()
         {

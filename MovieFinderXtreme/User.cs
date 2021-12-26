@@ -48,27 +48,25 @@ namespace MovieFinderXtreme
         {
             Console.Clear();
             Console.Write("Please enter desired username: ");
-            string Username = Console.ReadLine();
+            string username= Console.ReadLine();
             Console.Clear();
             Console.Write("Please enter desired password: ");
             string password = Console.ReadLine();
             Console.Clear();
             Console.WriteLine("Please enter your age: ");
-            int Age = Convert.ToInt32(Console.ReadLine());
+            int age = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.Write("Please enter your country: ");
-            string country = Console.ReadLine();
+           string country = Console.ReadLine();
             Console.Clear();
             Console.Write("Please enter your preference: ");
-            string preference = Console.ReadLine();
+           string preferences = Console.ReadLine();
             Console.Clear();
 
-
-
-            int i = 4;
-        User user = new(Username, Age, password, country, preference);
-            User.Users.Add(i, CurrUser);
-            CurrUser = User.Users[i];
+          
+            new User(username,age,password,country,preferences);
+            User.preferences.Add(preferences);
+            CurrUser = Users.Last().Value;
             Console.WriteLine("Redirecting you to menu, please wait...");
             Methods.Paus(2);
             LoginMenu.Introduction();
