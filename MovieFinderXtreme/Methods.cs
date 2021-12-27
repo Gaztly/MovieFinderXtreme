@@ -47,6 +47,11 @@ namespace MovieFinderXtreme
                         Lines();
                         return;
                     }
+                case 4:
+                    {
+
+                        break;
+                    }
             }
         }
         public static void EditUserName()
@@ -117,13 +122,14 @@ namespace MovieFinderXtreme
             Result.Rootobject movietitle = JsonConvert.DeserializeObject<Result.Rootobject>(responseContent);
 
             Console.Clear();
+            Title("Search Results");
             foreach (var item in movietitle.results)
             {
-                Console.WriteLine("{0}.{1}----> Movie-Id: {2}", i, item.original_title, item.id);
-                Lines();
+                Console.WriteLine("{0}.{1} - Movie-Id: {2}", i, item.original_title, item.id);
                 i++;
 
             }
+            Lines();
             int id = Id();
             string urId = $"https://api.themoviedb.org/3/movie/{id}?api_key={key}";
 
@@ -165,6 +171,7 @@ namespace MovieFinderXtreme
                     Console.Clear();
                     Lines();
                     Console.WriteLine("Returning to main menu...");
+                    Lines();
                     Paus(2);
                     await MainMenu.Mains();
                     break;
